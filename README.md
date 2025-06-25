@@ -1,17 +1,38 @@
-# Proyecto Ejemplo: Gestor de Recursos
+# Proyecto Ejemplo: Gestor de Recursos Laravel + Vue.js 3 (FullStack)
 
 Este es un proyecto completo de aplicación de gestión de Recursos usando Laravel como backend y Vue 3 como frontend. Ambos están organizados en carpetas `/backend` y `/frontend`.
 
 ---
 
-## Autenticación
+## 🚀 Requisitos
 
-/api/login: Login de usuario (POST)
-/api/logout: Cierre de sesión (POST)
-/api/usuarios: Listar usuarios (GET, requiere token)
-/api/register: Crear usuario (POST, requiere token)
-/api/users/{id}: PUT/DELETE para actualizar y eliminar (token)
-El token de acceso se guarda en localStorage como auth_token. 
+- Node.js >= 18
+- PHP >= 8.1
+- Composer
+- MySQL o SQLite
+- Laravel CLI
+- Vue vite
+
+## 🧪 Rutas principales (Laravel)
+
+Método	URI	Acción
+POST	/api/login	Autenticación
+POST	/api/register	Crear usuario
+GET	/api/users	Listar usuarios
+PUT	/api/users/:id	Actualizar usuario
+DELETE	/api/users/:id	Eliminar usuario
+GET	/api/productos	Listar productos
+CRUD	/api/productos	Operaciones CRUD
+
+### Backend (Laravel)
+
+```bash
+cd backend
+cp .env.example .env
+composer install
+php artisan key:generate
+php artisan migrate 
+php artisan serve
 
 ## 📂 Estructura del Proyecto
 ```
@@ -19,6 +40,19 @@ project-root/
 │
 ├── backend/               # Laravel API REST con autenticación Sanctum
 │   ├── README.md          # Instrucciones para instalar y ejecutar
+│   ├── backend/                # Proyecto Laravel (API)
+│   ├── app/
+│   ├── bootstrap/
+│   ├── config/
+│   ├── database/
+│   ├── public/
+│   ├── routes/
+│   │   └── api.php
+│   ├── storage/
+│   ├── tests/
+│   ├── .env.example
+│   ├── composer.json
+│   └── ...
 │   ├── BookController.php
 │   ├── CarController.php
 │   ├── CarController.php
