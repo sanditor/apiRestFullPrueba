@@ -15,7 +15,7 @@
                     <input v-model="nuevo.email" class="form-control" placeholder="Email" required />
                 </div>
                 <div class="col-md-3">
-                    <input v-model="nuevo.password" class="form-control" placeholder="Password" required />
+                    <input v-model="nuevo.password" type="password" class="form-control" placeholder="Password" required />
                 </div>
                 <div class="col-md-2">
                     <button class="btn btn-primary w-100">Agregar</button>
