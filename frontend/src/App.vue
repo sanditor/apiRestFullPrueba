@@ -8,7 +8,7 @@
         </h1>
         <!-- 👤 Mostrar nombre del usuario -->
         <div v-if="user" class="text-white me-3 fw-semibold">
-          👤 {{ user.name}}
+          👤 Bienvenido: {{ user.name}}
         </div>
         <button
           v-if="token"
