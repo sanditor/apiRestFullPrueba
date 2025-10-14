@@ -7,5 +7,3 @@
 .vscode
 npm-debug.log
 yarn-error.log
-/backend/storage/framework/sessions/
-/backend/storage/framework/cache/
