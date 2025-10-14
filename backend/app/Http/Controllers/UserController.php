@@ -25,6 +25,8 @@ class UserController extends Controller
 
         return response()->json([
             'user' => $user,
+            'id' => $user->id,
+            'name' => $user->name,
             'token' => $token
         ]);
     }
@@ -58,6 +60,24 @@ class UserController extends Controller
     public function index()
     {
         return User::all();
+    }
+
+    // 🧍‍♂️ OBTENER USUARIO LOGUEADO POR ID
+    public function getUserById(Request $request, $id)
+    {
+        // Verifica si el usuario autenticado coincide con el id solicitado
+        $authUser = $request->user();
+
+        if (!$authUser) {
+            return response()->json(['message' => 'No autenticado'], 401);
+        }
+
+        // Solo permite traer su propio perfil, no el de otros
+        if ($authUser->id != $id) {
+            return response()->json(['message' => 'Acceso denegado'], 403);
+        }
+
+        return response()->json($authUser);
     }
 
     // ✏️ ACTUALIZAR USUARIO

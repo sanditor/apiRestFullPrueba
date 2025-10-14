@@ -1,14 +1,14 @@
 <template>
-  <div class="container mt-5">
+  <div class="container mt-2">
     <h2 class="text-center mb-4">Iniciar Sesión</h2>
     <form @submit.prevent="loguear" class="row g-2 justify-content-center" novalidate>
-      <div class="col-md-4">
+      <div class="col-md-12">
         <input v-model="email" class="form-control" type="email" placeholder="Email" required />
       </div>
-      <div class="col-md-4">
+      <div class="col-md-12">
         <input v-model="password" class="form-control" type="password" placeholder="Contraseña" required />
       </div>
-      <div class="col-md-2">
+      <div class="col-md-12">
         <button class="btn btn-primary w-100">Entrar</button>
       </div>
     </form>
@@ -29,7 +29,9 @@ async function loguear() {
   try {
     const res = await login({ email: email.value, password: password.value })
     const token = res.data.token
+    const idUser = res.data.id
     localStorage.setItem('auth_token', token)
+    localStorage.setItem('id_user', idUser)
     window.location.reload() // recarga para habilitar vistas protegidas
   } catch (e) {
     error.value = 'Credenciales incorrectas'

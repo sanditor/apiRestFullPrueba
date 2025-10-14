@@ -27,7 +27,7 @@ Frontend desarrollado con **Vue.js 3 + Vite** para consumir una API RESTful de L
 
 ---
 
-## ⚙️ Instalación Local
+## ⚙️ Instalación Local Frontend(Vue.js)
 
 ```bash
 git clone https://github.com/tuusuario/apiRestFullPrueba.git

@@ -1,6 +1,6 @@
 <template>
-    <div class="container my-4">
-        <h2 class="text-center mb-4">Usuarios</h2>
+    <div class="container my-3">
+        <h2 class="text-center mb-4 text-primary fw-bold">Usuarios</h2>
 
         <div v-if="!token">
             <p class="text-danger text-center">Debes iniciar sesión para ver esta sección.</p>
@@ -23,7 +23,7 @@
             </form>
 
             <div v-if="editando" ref="editFormUser" class="mt-4 mb-4">
-                <h4>Editar Usuario</h4>
+                <h4 calss= "text-start mb-2 text-primary fw-bold">Editar Usuario</h4>
                 <form @submit.prevent="actualizar" class="row g-2">
                     <div class="col-md-5">
                         <input v-model="editando.name" class="form-control" required />
@@ -46,7 +46,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="usuario in usuarios" :key="usuario.id">
+                    <tr class="text-center" v-for="usuario in usuarios" :key="usuario.id">
                         <td>{{ usuario.name }}</td>
                         <td>{{ usuario.email }}</td>
                         <td>
@@ -74,44 +74,76 @@ const token = localStorage.getItem('auth_token')
 const editFormUser = ref(null)
 
 const cargar = async () => {
-    if (!token) return
-    const res = await getUsuarios(token)
+    try {
+        if (!token) return
+        const res = await getUsuarios(token)
 
-    usuarios.value = res.data
+        usuarios.value = res.data
+    } catch (error) {
+    console.error('Error al cargar los usuarios:', error)
+    alert('No se pudieron cargar los usuarios. Verifica la conexión con el servidor.')
+  }
 }
 
 const crear = async () => {
     try {
         await createUsuario(nuevo.value, token)
         nuevo.value = { name: '', email: '', password: '' }
+        alert('Usuario creado correctamente.')
         await cargar()
     } catch (e) {
-        error.value = 'No autorizado o datos inválidos'
+        error.value = 'No se pudo agregar el usuario. Revisa los campos o el servidor.'
     }
 }
 
 const editar = async (usuario) => {
-    //seteamos el usuario
-    editando.value = { ...usuario }
+    try {
+        //seteamos el usuario
+        editando.value = { ...usuario }
 
-    //Esperamos a que Vue renderice el formulario
-    await nextTick()
+        //Esperamos a que Vue renderice el formulario
+        await nextTick()
 
-    //Hacemos scroll al formulario
-    if (editFormUser.value) {
-        editFormUser.value.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
+        //Hacemos scroll al formulario
+        if (editFormUser.value) {
+            editFormUser.value.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+    } catch (error) {
+        console.error('Error al preparar la edición del usuario:', error)
+        alert('Ocurrió un error al preparar la edición del usuario.')
+  }
+
 }
 
 const actualizar = async () => {
-    await updateUsuario(editando.value.id, editando.value, token)
-    editando.value = null
-    await cargar()
+    try {
+        await updateUsuario(editando.value.id, editando.value, token)
+         alert('Usuario actualizado correctamente.')
+
+        // Limpiar el formulario de edición (esto lo oculta)
+        editando.value = null
+
+        // Recargar la lista actualizada
+        await cargar()
+
+        // Desplazar hacia la parte superior de la página
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+
+    } catch (error) {
+        console.error('Error al actualizar usuario:', error)
+        alert('No se pudo actualizar el usuario. Revisa la conexión o los datos.')
+  }
 }
 
 const eliminar = async (id) => {
-    await deleteUsuario(id, token)
-    await cargar()
+    if (!confirm('¿Deseas eliminar este usuario?')) return
+        try {
+        await deleteUsuario(id, token)
+        await cargar()
+    } catch (error) {
+        console.error('Error al eliminar Usuario:', error)
+        alert('No se pudo eliminar el Usuario.')
+  }
 }
 
 onMounted(cargar)
