@@ -2,12 +2,12 @@
 # Laravel backend
 # ==========================================
 
-/vendor/
-/node_modules/
-/public/storage
-.env
-.env.*
-/bootstrap/cache/*.php
+backend/vendor/
+backend/node_modules/
+backend/public/storage
+backend/.env
+backend/.env.*
+backend/bootstrap/cache/*.php
 
 # Ignorar todo el storage excepto public/
 # (Laravel necesita public/ para los symlinks)
