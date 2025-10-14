@@ -24,18 +24,50 @@ DELETE	/api/users/:id	Eliminar usuario
 GET	/api/productos	Listar productos
 CRUD	/api/productos	Operaciones CRUD
 
-### Intalación Backend (Laravel)
+### Intalación Local Backend (Laravel)
 
 ```bash
+git clone https://github.com/tuusuario/apiRestFullPrueba.git
 cd backend
 cp .env.example .env
 composer install
 php artisan key:generate
 php artisan migrate 
 php artisan serve
+```
+
+### Instrucciones posteriores de configuración de entorno (.env examples)
+
+En el archivo: .env ya creado agregar estas lineas de código y pues crear la BBDD en su mysql editor con el nombre de la variable: DB_DATABASE
+
+APP_NAME=Laravel
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://127.0.1:8000
+
+LOG_CHANNEL=stack
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=db_apirestfullprueba
+DB_USERNAME=root
+DB_PASSWORD=
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+SESSION_DOMAIN=127.0.0.1
+SANCTUM_STATEFUL_DOMAINS=127.0.0.1:5173
+
+SESSION_SAME_SITE=lax
+SESSION_SECURE_COOKIE=false    
 
 ## 📂 Estructura del Proyecto
-```
+
 project-root/
 │
 ├── backend/               # Laravel API REST con autenticación Sanctum
@@ -80,7 +112,6 @@ project-root/
 ### ⚙️ Instalación Local Frontend(Vue.js)
 
 ```bash
-git clone https://github.com/tuusuario/apiRestFullPrueba.git
 cd frontend
 npm install
 npm run dev
@@ -88,6 +119,10 @@ npm run dev
 ```
 
 - Asegúrate que el backend Laravel esté corriendo en http://localhost:8000
+
+- Loguearse con esta credenciales en el frontend:
+        usuario: admin@admin.com
+        psw: Prueba123
 
 
 ## Estructura del proyecto
