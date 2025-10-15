@@ -31,7 +31,7 @@ CRUD	/api/productos	Operaciones CRUD
 ### Intalación Local Backend (Laravel)
 
 ```bash
-git clone https://github.com/tuusuario/apiRestFullPrueba.git
+git clone https://github.com/sanditor/apiRestFullPrueba.git
 cd backend
 cp .env.example .env
 composer install
