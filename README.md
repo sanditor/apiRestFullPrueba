@@ -15,6 +15,7 @@ Este es un proyecto completo de aplicación de gestión de Recursos usando Larav
 
 ## 🧪 Rutas principales (Laravel)
 
+```
 Método	URI	Acción
 POST	/api/login	Autenticación
 POST	/api/register	Crear usuario
@@ -23,6 +24,8 @@ PUT	/api/users/:id	Actualizar usuario
 DELETE	/api/users/:id	Eliminar usuario
 GET	/api/productos	Listar productos
 CRUD	/api/productos	Operaciones CRUD
+
+```
 
 ### Intalación Local Backend (Laravel)
 
@@ -68,6 +71,8 @@ SESSION_SECURE_COOKIE=false
 
 ## 📂 Estructura del Proyecto
 
+```
+
 project-root/
 │
 ├── backend/               # Laravel API REST con autenticación Sanctum
@@ -108,6 +113,7 @@ project-root/
 │
 └── .gitignore             # Incluye Laravel y Node exclusions
 
+```
 
 ### ⚙️ Instalación Local Frontend(Vue.js)
 
@@ -126,6 +132,8 @@ npm run dev
 
 
 ## Estructura del proyecto
+
+```
 
 frontend/
 ├── package.json              # Configuración del proyecto
@@ -152,6 +160,8 @@ frontend/
 | Carros    | `/api/cars`      | GET, POST, PUT, DELETE |
 | Usuarios  | `/api/users`     | GET, POST, PUT, DELETE |
 
+```
+
 Las rutas siguen la convención RESTful típica de Laravel. El archivo api.js centraliza todas las llamadas a estas rutas.
 
 ## Funcionalidades
@@ -160,6 +170,17 @@ Las rutas siguen la convención RESTful típica de Laravel. El archivo api.js ce
 - Logout con eliminación del token
 - Interfaz con Bootstrap 5
 - CRUD dinámico con formularios y validación básica
+
+## 🧑‍💼 Autor
+
+Sandor Luque Farfán
+Desarrollador Full Stack Junior (Laravel / Vue.js)
+📧 sanditorl1978@gmail.com
+
+## 🏁 Licencia
+
+Este proyecto se distribuye bajo la licencia MIT, y su código puede ser utilizado con fines educativos y demostrativos.
+
 
 
 
