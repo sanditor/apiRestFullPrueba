@@ -44,6 +44,8 @@ php artisan serve
 
 En el archivo: .env ya creado agregar estas lineas de código y pues crear la BBDD en su mysql editor con el nombre de la variable: DB_DATABASE
 
+```php
+
 APP_NAME=Laravel
 APP_ENV=local
 APP_DEBUG=true
@@ -68,7 +70,9 @@ SESSION_DOMAIN=127.0.0.1
 SANCTUM_STATEFUL_DOMAINS=127.0.0.1:5173
 
 SESSION_SAME_SITE=lax
-SESSION_SECURE_COOKIE=false    
+SESSION_SECURE_COOKIE=false 
+
+```
 
 ## 📂 Estructura del Proyecto
 

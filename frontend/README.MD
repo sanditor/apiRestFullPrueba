@@ -24,7 +24,6 @@ Frontend desarrollado con **Vue.js 3 + Vite** para consumir una API RESTful de L
 - Node.js
 - Backend Laravel configurado con Sanctum (`/api` funcionando)
 - CORS habilitado para localhost:5173
-```
 
 - Asegúrate que el backend Laravel esté corriendo en http://localhost:8000
 
@@ -49,7 +48,11 @@ frontend/
 │       ├── CarList.vue      # Componente CRUD de carros
 │       └── UserList.vue     # Componente CRUD de usuarios
 
+```
+
 ## Rutas de la API Laravel
+
+```
 
 | Recurso   | Endpoint         | Métodos disponibles    |
 | --------- | ---------------- | ---------------------- |
