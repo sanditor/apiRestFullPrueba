@@ -17,6 +17,7 @@ Este es un proyecto completo de aplicación de gestión de Recursos usando Larav
 
 ```
 Método	URI	Acción
+
 POST	/api/login	Autenticación
 POST	/api/register	Crear usuario
 GET	/api/users	Listar usuarios

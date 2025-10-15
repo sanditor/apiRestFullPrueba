@@ -10,18 +10,6 @@ Este backend es una API REST construida con Laravel que permite a usuarios auten
 - Laravel 10+
 - Extensiones PHP: OpenSSL, PDO, Mbstring, Tokenizer, XML, Ctype, JSON, BCMath
 
-## 🚀 Instalación Local
-
-```bash
-cd backend
-cp .env.example .env
-composer install
-php artisan key:generate
-php artisan migrate
-php artisan serve
-
-```
-
 ## 🚀 Recomendaciones Importantes
 
 - Asegúrate de configurar correctamente la conexión a tu base de datos en .env.

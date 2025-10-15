@@ -24,23 +24,14 @@ Frontend desarrollado con **Vue.js 3 + Vite** para consumir una API RESTful de L
 - Node.js
 - Backend Laravel configurado con Sanctum (`/api` funcionando)
 - CORS habilitado para localhost:5173
-
----
-
-## ⚙️ Instalación Local Frontend(Vue.js)
-
-```bash
-git clone https://github.com/tuusuario/apiRestFullPrueba.git
-cd frontend
-npm install
-npm run dev
-
 ```
 
 - Asegúrate que el backend Laravel esté corriendo en http://localhost:8000
 
 
 ## Estructura del proyecto
+
+```
 
 frontend/
 ├── package.json              # Configuración del proyecto
@@ -66,6 +57,8 @@ frontend/
 | Libros    | `/api/books`     | GET, POST, PUT, DELETE |
 | Carros    | `/api/cars`      | GET, POST, PUT, DELETE |
 | Usuarios  | `/api/users`     | GET, POST, PUT, DELETE |
+
+```
 
 Las rutas siguen la convención RESTful típica de Laravel. El archivo api.js centraliza todas las llamadas a estas rutas.
 
